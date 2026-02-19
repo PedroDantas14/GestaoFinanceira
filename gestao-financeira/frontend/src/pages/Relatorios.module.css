@@ -1,0 +1,208 @@
+.pagina {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.title {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.select {
+  padding: 0.5rem 0.75rem;
+  min-width: 120px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.exportBtns {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.btnExport {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.btnExport:hover:not(:disabled) {
+  background: var(--border);
+}
+
+.btnExport:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.erro {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: rgba(244, 33, 46, 0.12);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  color: #ff6b7a;
+  font-size: 0.9rem;
+}
+
+.loading, .vazio {
+  padding: 2rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cardLabel {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.cardValorEntrada {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.cardValorSaida {
+  color: var(--danger);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.cardSaldoPos .cardValor {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.cardSaldoNeg .cardValor {
+  color: var(--danger);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.listaCat {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.itemCat {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.itemCat:last-child {
+  border-bottom: none;
+}
+
+.valorEntrada {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.valorSaida {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.tabelaWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabela th,
+.tabela td {
+  padding: 0.65rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabela th {
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(0,0,0,0.2);
+}
+
+.thNum {
+  text-align: right !important;
+}
+
+.tabela td:nth-child(5) {
+  text-align: right;
+}
