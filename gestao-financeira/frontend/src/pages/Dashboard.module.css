@@ -1,5 +1,6 @@
 .dashboard {
   animation: fadeIn 0.2s ease;
+  padding-bottom: 2rem;
 }
 
 @keyframes fadeIn {
@@ -7,89 +8,189 @@
   to { opacity: 1; }
 }
 
-.loading, .erro {
-  padding: 2rem;
-  text-align: center;
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  gap: 1rem;
   color: var(--text-muted);
 }
 
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .erro {
+  padding: 2rem;
+  text-align: center;
   color: var(--danger);
+  background: rgba(244, 33, 46, 0.08);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+}
+
+/* Header */
+.header {
+  margin-bottom: 1.5rem;
 }
 
 .pageTitle {
   margin: 0 0 0.25rem;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
-  margin: 0 0 1.5rem;
+  margin: 0;
   color: var(--text-muted);
   font-size: 0.95rem;
 }
 
-.cards {
+/* KPIs */
+.kpis {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.card {
+.kpiCard {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.25rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-.cardLabel {
-  font-size: 0.85rem;
+.kpiCard:hover {
+  border-color: var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.kpiIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--text-muted);
+  flex-shrink: 0;
 }
 
-.cardValor, .cardValorEntrada, .cardValorSaida {
+.kpiCardSaldo .kpiIcon {
+  background: rgba(29, 155, 240, 0.15);
+  color: var(--accent);
+}
+
+.kpiContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.kpiLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kpiValor,
+.kpiValorEntrada,
+.kpiValorSaida {
   font-size: 1.35rem;
   font-weight: 700;
+  line-height: 1.2;
 }
 
-.cardValorEntrada {
+.kpiValorEntrada {
   color: var(--success);
 }
 
-.cardValorSaida {
+.kpiValorSaida {
   color: var(--danger);
 }
 
-.cardSaldoPos .cardValor {
+.kpiCardSaldo.saldoPos .kpiValor {
   color: var(--success);
 }
 
-.cardSaldoNeg .cardValor {
+.kpiCardSaldo.saldoNeg .kpiValor {
   color: var(--danger);
 }
 
-.section {
+/* Gráficos */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 2rem;
+}
+
+.chartCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  overflow: hidden;
+}
+
+.chartTitle {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.chartWrap {
+  width: 100%;
+  min-height: 220px;
+}
+
+/* Section */
+.section {
+  margin-bottom: 1.5rem;
 }
 
 .sectionTitle {
   margin: 0 0 0.75rem;
   font-size: 1.1rem;
   font-weight: 600;
+  color: var(--text);
+}
+
+.listaCard,
+.tabelaCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
 .listaCategorias {
   list-style: none;
   margin: 0;
   padding: 0;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
 }
 
 .itemCategoria {
@@ -120,9 +221,6 @@
 
 .tabelaWrap {
   overflow-x: auto;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg-card);
 }
 
 .tabela {
@@ -133,7 +231,7 @@
 
 .tabela th,
 .tabela td {
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--border);
 }
@@ -141,7 +239,14 @@
 .tabela th {
   font-weight: 600;
   color: var(--text-muted);
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tabela tbody tr:hover {
+  background: var(--bg-card-hover);
 }
 
 .tabela tr:last-child td {
@@ -164,8 +269,20 @@
   text-align: right;
 }
 
-.vazio {
-  color: var(--text-muted);
-  padding: 2rem;
+.vazioCard {
+  background: var(--bg-card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
   text-align: center;
+}
+
+.vazio {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.vazio strong {
+  color: var(--text);
 }
