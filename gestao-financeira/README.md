@@ -327,6 +327,31 @@ Documentação interativa: **http://localhost:8080/swagger-ui.html**.
 
 ---
 
+## 🖥 Frontend (React + TypeScript)
+
+O projeto inclui um frontend em **React 18 + TypeScript** (Vite) na pasta `frontend/`, para testar a API com interface gráfica: login, dashboard, abas de Transações, Categorias e Relatórios (com exportação PDF/Excel).
+
+### Rodar o frontend
+
+1. **Backend** deve estar rodando em **http://localhost:8080** (veja seção “Como rodar o projeto” acima).
+2. Na pasta do frontend:
+
+```bash
+cd frontend
+
+# Instalar dependências (primeira vez)
+npm install
+
+# Subir o servidor de desenvolvimento
+npm run dev
+```
+
+3. Acesse **http://localhost:3000**. As requisições para `/api` são enviadas ao backend via proxy configurado no Vite.
+
+Detalhes da estrutura, scripts e variáveis de ambiente: veja [frontend/README.md](frontend/README.md).
+
+---
+
 ## ⚙ Configuração importante (JWT)
 
 No `application.properties`, a chave do JWT:
