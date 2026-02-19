@@ -1,0 +1,171 @@
+.dashboard {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.loading, .erro {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.erro {
+  color: var(--danger);
+}
+
+.pageTitle {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardLabel {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.cardValor, .cardValorEntrada, .cardValorSaida {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.cardValorEntrada {
+  color: var(--success);
+}
+
+.cardValorSaida {
+  color: var(--danger);
+}
+
+.cardSaldoPos .cardValor {
+  color: var(--success);
+}
+
+.cardSaldoNeg .cardValor {
+  color: var(--danger);
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.listaCategorias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.itemCategoria {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.itemCategoria:last-child {
+  border-bottom: none;
+}
+
+.catNome {
+  font-weight: 500;
+}
+
+.catEntrada {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.catSaida {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.tabelaWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabela th,
+.tabela td {
+  padding: 0.65rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabela th {
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(0,0,0,0.2);
+}
+
+.tabela tr:last-child td {
+  border-bottom: none;
+}
+
+.thNum {
+  text-align: right !important;
+}
+
+.valorEntrada {
+  color: var(--success);
+  font-weight: 600;
+  text-align: right;
+}
+
+.valorSaida {
+  color: var(--danger);
+  font-weight: 600;
+  text-align: right;
+}
+
+.vazio {
+  color: var(--text-muted);
+  padding: 2rem;
+  text-align: center;
+}

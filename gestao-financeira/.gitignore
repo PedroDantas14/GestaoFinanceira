@@ -26,3 +26,5 @@ Thumbs.db
 # Spring / App
 application-local.properties
 application-local.yml
+
+node_modules/
