@@ -17,7 +17,10 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (r) => r,
   (err) => {
-    if (err.response?.status === 401) {
+    // 401 = não autenticado; 403 em /api = token inválido/expirado (backend pode retornar 403 em alguns casos)
+    const status = err.response?.status
+    const isApi = err.config?.url?.includes?.('/api/')
+    if (status === 401 || (status === 403 && isApi)) {
       localStorage.removeItem('token')
       localStorage.removeItem('user')
       window.location.href = '/login'
